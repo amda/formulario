@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<link rel="stylesheet" type="text/css" href="styles.css" />
+
+</head>
+
+<body>
+
+<div id="carbonForm">
+	<h1>AGREGAR MAESTRO</h1>
+    <form id="form_469993" class="appnitro"  method="post" action="servidor/guardarequipo.php">
+                    <div class="form_description">
+            <p></p>
+        </div>  
+
+    <form action="submit.php" method="post" id="signupForm">
+
+    <div class="fieldContainer">
+
+        <div class="formRow">
+            <div id="label1" >
+        <label class="description" for="element_1">Tag RFID</label>
+            </div>
+
+            <div class="field">
+                <input  id="element_1" name="tagrfid" class="element text medium" type="text" maxlength="255" value="" />
+            </div>
+        </div>
+        
+        <div class="formRow">
+            <div class="label2">
+                <label class="description" for="element_2">Nombre de la persona </label>
+            </div>
+            
+            <div class="field">
+                <input id="element_2" name="nombre" class="element text large" type="text" maxlength="255" value="" />
+            </div>
+        </div>
+        
+         <div class="formRow">
+            <div class="label4">
+                <label  class="description" for="element_4">Escuela</label>
+            </div>
+            
+          <div>
+        <select class="element select medium" id="element_4" name="posicion"> 
+            <option value="" selected="selected"></option>
+<option value="2" >FIT</option>
+<option value="3" >FCA</option>
+<option value="4" >FSP</option>
+<option value="4" >FCE</option>
+
+        </select>
+        </div> 
+        </div>     
+        
+    </div> <!-- Closing fieldContainer -->
+    
+    <div class="signupButton">
+        <input type="submit" name="submit" id="submit" value="Signup" />
+    </div>
+    
+    </form>
+        
+</div>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>

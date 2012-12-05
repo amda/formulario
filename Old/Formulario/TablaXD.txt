@@ -1,0 +1,4 @@
+
+
+	Folio	Base	Hora Entrada	Hora Salida	Acceso	 	Lug posible	Status	
+	  1	FIT	     8:00 am      10:30 am       Puerta Fit       Cubiculos    Esta en los cubiculos   
