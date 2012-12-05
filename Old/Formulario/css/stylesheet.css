@@ -1,0 +1,79 @@
+	
+
+.menu{margin:0 auto; padding:0; height:30px; width:100%; display:block; background:url("../images/topMenuImages.png") repeat-x;}
+.menu li{padding:0; margin:0; list-style:none; display:inline;}
+.menu li a{float:left; padding-left:15px; display:block; color:rgb(255,255,255); text-decoration:none; font:12px Verdana, Arial, Helvetica, sans-serif; cursor:pointer; background:url("../images/topMenuImages.png") 0px -30px no-repeat; outline:none;}
+.menu li a span{line-height:30px; float:left; display:block; padding-right:15px; background:url("../images/topMenuImages.png") 100% -30px no-repeat;}
+.menu li a:hover{background-position:0px -60px; color:rgb(255,255,255);}
+.menu li a:hover span{background-position:100% -60px;}
+.menu li a.active, .menu li a.active:hover{line-height:30px; font:12px Verdana, Arial, Helvetica, sans-serif; background:url("../images/topMenuImages.png") 0px -90px no-repeat; color:rgb(255,255,255);}
+.menu li a.active span, .menu li a.active:hover span{background:url("../images/topMenuImages.png") 100% -90px no-repeat;}
+
+
+*{
+	/* Resetting the default styles of the page */
+	margin:0;
+	padding:0;
+}
+
+html{
+	overflow:auto;
+}
+
+body{
+	/* Setting default text color, background and a font stack */
+	font-size:0.825em;
+	color:#eee;
+	background:url("img/bg.png") repeat-x #222222;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+#carbonForm{
+	/* The main form container */
+	background-color:#1C1C1C;
+	border:1px solid #080808;
+	margin:10px auto;
+	padding:10px;
+	width:350px;
+	
+	-moz-box-shadow:0 0 1px #444 inset;
+	-webkit-box-shadow:0 0 1px #444 inset;
+	box-shadow:0 0 1px #444 inset;
+}
+
+#carbonForm h1{
+	/* The form heading */
+	font-family:Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+	font-size:30px;
+	font-weight:normal;
+	padding:0 0 30px 10px;
+	text-align:left;
+}
+
+.fieldContainer{
+	/* The light rounded section, which contans the fields */
+	background-color:#1E1E1E;
+	border:1px solid #0E0E0E;
+	padding:30px 10px;
+	
+	/* CSS3 box shadow, used as an inner glow */
+	-moz-box-shadow:0 0 20px #292929 inset;
+	-webkit-box-shadow:0 0 20px #292929 inset;
+	box-shadow:0 0 20px #292929 inset;
+}
+
+#carbonForm,.fieldContainer,.errorTip{
+	/* Rounding the divs at once */
+	-moz-border-radius:12px;
+	-webkit-border-radius:12px;
+	border-radius:12px;
+}
+
+
+.formRow{
+	height:48px;
+	padding:30px;
+	position:relative;
+}
+
+.label{
