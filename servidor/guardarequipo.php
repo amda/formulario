@@ -1,7 +1,6 @@
 <?php
 
-$connection= mysql_connect("localhost","root","ok...") or die("Connection Failed".mysql_error());
-mysql_select_db("proyectorfid",$connection)or die("Error loading the DataBase".mysql_error());
+include("conexion.php");
 
 $tag = $_POST['tagrfid'];
 $nombre =  $_POST['nombre'];

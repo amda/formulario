@@ -115,13 +115,13 @@ continue; //Cuando hacemos mysql_fetch_array, php genera un array
 // Solo nos interesa el del nombre del campo.
 
 }
-
-if ($nombre_campo === 'regla'|$nombre_campo === 'tagrfid') {
-
-}
-else{
 echo "<b>".$nombre_campo."</b> : ".$valor_campo."<br>";
-}
+// if ($nombre_campo === 'regla'|$nombre_campo === 'tagrfid') {
+
+// }
+// else{
+// echo "<b>".$nombre_campo."</b> : ".$valor_campo."<br>";
+// }
 }
 echo "</p>";
 

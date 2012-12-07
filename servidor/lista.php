@@ -61,8 +61,8 @@
             <div id="templatemo_menu" class="ddsmoothmenu">
                 <ul>
                     <li><a href="index.html" class="selected">Home</a></li>
-                    <li><a href="lista.php">Lista</a></li>
-                    <li><a href="buscar.php">Buscar</a></li>
+                    <li><a href="lista.html">Lista</a></li>
+                    <li><a href="buscar.html">Buscar</a></li>
                 </ul>
                 <br style="clear: left" />
             </div> <!-- end of templatemo_menu -->
@@ -75,79 +75,41 @@
           
             <div id="carbonForm">
           
-              <h1>AGREGAR MAESTRO</h1>
+              <h1>LISTA DE MAESTRO</h1>
+
+              <?php
+/* Abrimos la base de datos */
+$connection = mysql_connect("localhost","root","ok...") or die("Connection Failed".mysql_error());
+mysql_select_db("proyectorfid",$connection)or die("Error loading the DataBase".mysql_error());
+
+/* Realizamos la consulta SQL */
+
+
+/* Desplegamos cada uno de los registros dentro de una tabla */  
+echo "<table border=1 cellpadding=4 >";
+
+/*Priemro los encabezados*/
+echo "<tr>
+<th colspan=5> Reporte </th>
+<tr>
+<th> Name </th>
+<th> Tagrfid </th>
+<th> Base </th>
+</tr>";
+
+/*Y ahora todos los registros */
+while($row=mysql_fetch_array($result))
+{
+echo "<tr>
+<td align='right'> $row[tagrfid] </td>
+<td> $row[name]
+<td> $row[base] </td>
+</tr>;";
+}
+echo "</table>";
+              ?>
+
           
-              <form id="form_469993" class="appnitro"  method="post" action="servidor/guardarequipo.php">
-              
-                <div class="form_description">
-                  <p></p>
-                </div> 
-
-              <form action="servidor/guardarequipo.php" method="post" id="signupForm">
-
-                <div class="fieldContainer">
-
-                  <div class="formRow">
-                    
-                    <div id="label1" >
-                      <label class="description" for="element_1">Tag RFID</label>
-                    </div>
-
-                    <div class="field">
-                      <input  id="element_1" name="tagrfid" class="element text medium" type="text" maxlength="255" value="" />
-                    </div>
-
-                  </div>
-            
-                  <div class="formRow">
-
-                      <div class="label2">
-                        <label class="description" for="element_2">Nombre de la persona </label>
-                      </div>
-                      
-                      <div class="field">
-                        <input id="element_2" name="nombre" class="element text large" type="text" maxlength="255" value="" />
-                      </div>
-                  </div>
-
-                  <div class="formRow">
-
-                      <div class="label3">
-                        <label class="description" for="element_2">Email</label>
-                      </div>
-                      
-                      <div class="field">
-                        <input id="element_2" name="email" class="element text large" type="text" maxlength="255" value="" />
-                      </div>
-
-                  </div>
-            
-                  <div class="formRow">
-
-                    <div class="label4">
-                      <label  class="description" for="element_4">Escuela</label>
-                    </div>
-                      
-                    <div>
-                      <select class="element select medium" id="element_4" name="base"> 
-                        <option value="" selected="selected"></option>
-                        <option value="FIT" >FIT</option>
-                        <option value="FCA" >FCA</option>
-                        <option value="FSP" >FSP</option>
-                        <option value="FCE" >FCE</option>
-                      </select>
-                    </div> 
-                
-                  </div>     
-            
-                </div> <!-- Closing fieldContainer -->
-        
-                <div class="signupButton">
-                  <input type="submit" name="submit" id="submit" value="Signup" />
-                </div>
-        
-              </form>
-            
             </div> 
               
             <div class="cleaner"></div>

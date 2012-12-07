@@ -75,79 +75,42 @@
           
             <div id="carbonForm">
           
-              <h1>AGREGAR MAESTRO</h1>
+              <h1>LISTA DE MAESTRO</h1>
+
+              <?php
+include("servidor/conexion.php");
+
+/* Realizamos la consulta SQL */
+$sql="select * from persona";
+$result= mysql_query($sql) or die(mysql_error());
+if(mysql_num_rows($result)==0) die("No hay registros para mostrar");
+
+/* Desplegamos cada uno de los registros dentro de una tabla */  
+echo "<table border=1 cellpadding=4 >";
+
+/*Priemro los encabezados*/
+echo "<tr>
+<th colspan=5> Reporte </th>
+<tr>
+<th>Name</th> <th> Tagrfid </th><th> Status </th>
+<th> Place </th><th> date </th>
+</tr>";
+
+/*Y ahora todos los registros */
+while($row=mysql_fetch_array($result))
+{
+echo "<tr>
+<td align='right'> $row[tagrfid] </td>
+<td> $row[name]
+<td> $row[email] </td>
+<td> $row[base] </td>
+<td> $row[regla] </td>
+</tr>;";
+}
+echo "</table>";
+              ?>
+
           
-              <form id="form_469993" class="appnitro"  method="post" action="servidor/guardarequipo.php">
-              
-                <div class="form_description">
-                  <p></p>
-                </div> 
-
-              <form action="servidor/guardarequipo.php" method="post" id="signupForm">
-
-                <div class="fieldContainer">
-
-                  <div class="formRow">
-                    
-                    <div id="label1" >
-                      <label class="description" for="element_1">Tag RFID</label>
-                    </div>
-
-                    <div class="field">
-                      <input  id="element_1" name="tagrfid" class="element text medium" type="text" maxlength="255" value="" />
-                    </div>
-
-                  </div>
-            
-                  <div class="formRow">
-
-                      <div class="label2">
-                        <label class="description" for="element_2">Nombre de la persona </label>
-                      </div>
-                      
-                      <div class="field">
-                        <input id="element_2" name="nombre" class="element text large" type="text" maxlength="255" value="" />
-                      </div>
-                  </div>
-
-                  <div class="formRow">
-
-                      <div class="label3">
-                        <label class="description" for="element_2">Email</label>
-                      </div>
-                      
-                      <div class="field">
-                        <input id="element_2" name="email" class="element text large" type="text" maxlength="255" value="" />
-                      </div>
-
-                  </div>
-            
-                  <div class="formRow">
-
-                    <div class="label4">
-                      <label  class="description" for="element_4">Escuela</label>
-                    </div>
-                      
-                    <div>
-                      <select class="element select medium" id="element_4" name="base"> 
-                        <option value="" selected="selected"></option>
-                        <option value="FIT" >FIT</option>
-                        <option value="FCA" >FCA</option>
-                        <option value="FSP" >FSP</option>
-                        <option value="FCE" >FCE</option>
-                      </select>
-                    </div> 
-                
-                  </div>     
-            
-                </div> <!-- Closing fieldContainer -->
-        
-                <div class="signupButton">
-                  <input type="submit" name="submit" id="submit" value="Signup" />
-                </div>
-        
-              </form>
-            
             </div> 
               
             <div class="cleaner"></div>

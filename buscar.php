@@ -75,79 +75,92 @@
           
             <div id="carbonForm">
           
-              <h1>AGREGAR MAESTRO</h1>
-          
-              <form id="form_469993" class="appnitro"  method="post" action="servidor/guardarequipo.php">
-              
-                <div class="form_description">
-                  <p></p>
-                </div> 
+              <h1>BUSCAR MAESTRO</h1>
+              <?php
+                include("servidor/conexion.php");
+                $result = mysql_query("SHOW FIELDS FROM persona");
+              ?>
 
-              <form action="servidor/guardarequipo.php" method="post" id="signupForm">
+              <center>
+                <p>Introduce las palabras para la búsqueda</p>
+                <form name="buscador" method="post" action="buscar.php">
+                  Buscar en:
+                  <select name="campo">
+                    <?php
+                      while($row = mysql_fetch_row($result)) {
+                    ?>
+                    <option value="<?php echo $row[0]; ?>"><?php echo $row[0]; ?></option>
+                    <?php
+                      }
+                    ?>
+                  </select>
+                  Palabra(s): <input type="text" name="palabra"><br>
+                  <input type="submit" value="Buscar" name="enviar">
+                </form>
+              </center>
 
-                <div class="fieldContainer">
+              <?php
 
-                  <div class="formRow">
-                    
-                    <div id="label1" >
-                      <label class="description" for="element_1">Tag RFID</label>
-                    </div>
+if(isset($_POST['enviar'])) {
+  // Solo se ejecuta si se ha enviado el formulario
+  $query = "SELECT * from persona WHERE '%{$_POST['campo']}%' LIKE '%{$_POST['palabra']}%'";
 
-                    <div class="field">
-                      <input  id="element_1" name="tagrfid" class="element text medium" type="text" maxlength="255" value="" />
-                    </div>
+  $result = mysql_query($query);
 
-                  </div>
-            
-                  <div class="formRow">
+  $found = false; // Si el query ha devuelto algo pondrá a true esta variable
 
-                      <div class="label2">
-                        <label class="description" for="element_2">Nombre de la persona </label>
-                      </div>
-                      
-                      <div class="field">
-                        <input id="element_2" name="nombre" class="element text large" type="text" maxlength="255" value="" />
-                      </div>
-                  </div>
 
-                  <div class="formRow">
 
-                      <div class="label3">
-                        <label class="description" for="element_2">Email</label>
-                      </div>
-                      
-                      <div class="field">
-                        <input id="element_2" name="email" class="element text large" type="text" maxlength="255" value="" />
-                      </div>
+  while ($row = mysql_fetch_array($result)) {
 
-                  </div>
-            
-                  <div class="formRow">
+    echo "string11212";
 
-                    <div class="label4">
-                      <label  class="description" for="element_4">Escuela</label>
-                    </div>
-                      
-                    <div>
-                      <select class="element select medium" id="element_4" name="base"> 
-                        <option value="" selected="selected"></option>
-                        <option value="FIT" >FIT</option>
-                        <option value="FCA" >FCA</option>
-                        <option value="FSP" >FSP</option>
-                        <option value="FCE" >FCE</option>
-                      </select>
-                    </div> 
+    $found = true;
+
+    echo $row + "<br>";
+
+    foreach($row as $nombre_campo => $valor_campo) {
+      echo "string";
+
+      // Tenemos que mostrar todos los campos de las filas donde se haya
+      // encontrado la búsqueda.
+
+
+      if(is_int($nombre_campo)) {
+
+        continue; //Cuando hacemos mysql_fetch_array, php genera un array
+        // con todos los valores guardados dos veces, uno con
+        // índice numérico y otro con índice el nombre del campo.
+        // Solo nos interesa el del nombre del campo.
+
+      }
+      echo "<b>".$nombre_campo."</b> : ".$valor_campo."<br>";
+
+      // if ($nombre_campo === 'regla'|$nombre_campo === 'tagrfid') {
+
+      // }
+      // else{
+      //   echo "<b>".$nombre_campo."</b> : ".$valor_campo."<br>";
+      // }
+    }
+    echo "</p>";
+  }
+
+  
+
+
+
+
+  if(!$found) {
+    echo "<br>No se encontró la palabra introducida";
+  }
+
+}
                 
-                  </div>     
-            
-                </div> <!-- Closing fieldContainer -->
-        
-                <div class="signupButton">
-                  <input type="submit" name="submit" id="submit" value="Signup" />
-                </div>
-        
-              </form>
-            
+              ?>
+
+
+          
             </div> 
               
             <div class="cleaner"></div>
